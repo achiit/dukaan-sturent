@@ -112,6 +112,13 @@
   a.inline{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;}
   strong{font-weight:700;}
   em{font-style:normal;border-bottom:1.5px solid var(--ink);padding-bottom:1px;}
+  mark{
+    background:linear-gradient(101deg,rgba(214,32,32,0) 0.4%,rgba(214,32,32,.26) 1.6%,rgba(214,32,32,.26) 97%,rgba(214,32,32,0) 99.5%);
+    color:inherit;font-weight:600;
+    padding:.04em .14em;border-radius:.06em;
+    box-decoration-break:clone;-webkit-box-decoration-break:clone;
+  }
+  .invert mark{background:rgba(255,90,90,.26);color:#fff;}
 
   ul.clean{list-style:none;margin:18px 0;padding:0;max-width:68ch;}
   ul.clean li{padding:13px 0 13px 30px;border-top:1px solid var(--rule);position:relative;}
@@ -179,11 +186,11 @@
 
   /* numbered flow */
   .flow{counter-reset:f;margin:28px 0;}
-  .flow .step{counter-increment:f;display:grid;grid-template-columns:40px 1fr;gap:18px;padding:20px 0;border-top:1px solid var(--rule);}
+  .flow .step{counter-increment:f;position:relative;padding:20px 0 20px 58px;border-top:1px solid var(--rule);}
   .flow .step:last-child{border-bottom:1px solid var(--rule);}
-  .flow .step::before{content:counter(f);font-weight:800;font-size:15px;font-variant-numeric:tabular-nums;color:var(--ink);}
+  .flow .step::before{content:counter(f);position:absolute;left:0;top:20px;font-weight:800;font-size:15px;font-variant-numeric:tabular-nums;color:var(--ink);}
   .flow .step h4{margin:0 0 6px;text-transform:none;letter-spacing:-.01em;color:var(--ink);font-size:16px;}
-  .flow .step p{margin:0;font-size:14.5px;color:var(--g1);}
+  .flow .step p{margin:0;font-size:14.5px;color:var(--g1);max-width:68ch;}
 
   /* two-col prose at wide */
   .cols2{columns:2;column-gap:48px;max-width:none;}
@@ -267,7 +274,7 @@
       <div class="ht"><div class="eyebrow">The thesis</div><h2>Listings are a commodity. Intelligence is not.</h2></div>
     </div>
 
-    <p class="lead">Every player in this market sells the same thing — a room with photos and a price. The room is interchangeable. What is scarce is knowing the right price, the right tenant, and the fastest path between a vacant unit and a signed lease.</p>
+    <p class="lead">Every player in this market sells the same thing — a room with photos and a price. The room is interchangeable. What is scarce is knowing <mark>the right price, the right tenant, and the fastest path between a vacant unit and a signed lease.</mark></p>
 
     <p>Sturent already has the correct instinct: verified housing, all-in pricing, clear lease terms, focused on the GTA rather than spread thin across continents. That is a position, not yet a product. The risk is finishing as a slightly nicer version of a free classifieds page — which is a race that Kijiji, Facebook groups, and Places4Students already won on volume and trust respectively.</p>
 
@@ -278,7 +285,7 @@
       <p class="big">Give students a free, almost unfair matching advantage — then charge owners for the visibility, speed, and intelligence required to compete for that demand.</p>
     </div>
 
-    <p>That asymmetry is the whole business. Demand is the product. Students never pay; their attention is what owners bid for. Everything in this document either deepens student demand or sharpens the tools owners must buy to capture it.</p>
+    <p>That asymmetry is the whole business. <mark>Demand is the product.</mark> Students never pay; their attention is what owners bid for. Everything in this document either deepens student demand or sharpens the tools owners must buy to capture it.</p>
   </div>
 </section>
 
@@ -306,7 +313,7 @@
       <div class="s"><div class="n">40–60%</div><div class="k">reduction in landlord admin reported from AI leasing tools — the efficiency Sturent gives away to win supply.</div></div>
     </div>
 
-    <p>The opportunity is not to add another place to post a room. It is to become the layer that prices it, verifies it, and matches it — in the one region where demand is dense enough that being the best, rather than the biggest, actually wins.</p>
+    <p>The opportunity is not to add another place to post a room. It is to <mark>become the layer that prices it, verifies it, and matches it</mark> — in the one region where demand is dense enough that being the best, rather than the biggest, actually wins.</p>
   </div>
 </section>
 
@@ -413,7 +420,7 @@
     </div>
 
     <div class="wrap" style="padding-left:0;padding-right:0;">
-    <p class="note"><b>Read the empty column.</b> Every competitor is either local-but-dumb or smart-but-foreign. None pairs deep GTA verification and all-in pricing with a real AI layer that serves both sides. liv.rent is the company to watch and the bar to clear on product craft; Places4Students is the proof that owners will pay; the classifieds are the supply Sturent converts.</p>
+    <p class="note"><b>Read the empty column.</b> Every competitor is either <mark>local-but-dumb or smart-but-foreign</mark>. None pairs deep GTA verification and all-in pricing with a real AI layer that serves both sides. liv.rent is the company to watch and the bar to clear on product craft; Places4Students is the proof that owners will pay; the classifieds are the supply Sturent converts.</p>
     </div>
   </div>
 </section>
@@ -435,7 +442,7 @@
       <div class="step"><h4>Monetized at the point of pain</h4><p>Owners pay precisely when a unit is sitting, a competitor outranks them, or the September clock is running. Pricing is attached to outcomes, not to a generic monthly fee.</p></div>
     </div>
 
-    <p>Hold these four together and the pitch to an owner writes itself: <strong>the students are already here, your competitor down the street is already paying to reach them, and the season ends in five weeks.</strong> That is a position the open classifieds and the foreign aggregators structurally cannot occupy.</p>
+    <p>Hold these four together and the pitch to an owner writes itself: <strong><mark>the students are already here, your competitor down the street is already paying to reach them, and the season ends in five weeks.</mark></strong> That is a position the open classifieds and the foreign aggregators structurally cannot occupy.</p>
   </div>
 </section>
 
@@ -519,7 +526,7 @@
     </div>
 
     <div class="wrap" style="padding-left:0;padding-right:0;">
-    <p class="lead">Students never pay — their demand is the inventory. The business is monetizing the owner's need to reach that demand faster than the owner across the road. The design principle is simple and honest: the free tier is genuinely useful, but the things that actually fill a room are gated.</p>
+    <p class="lead">Students never pay — their demand is the inventory. The business is monetizing the owner's need to reach that demand faster than the owner across the road. The design principle is simple and honest: the free tier is genuinely useful, but <mark>the things that actually fill a room are gated.</mark></p>
 
     <p>This is not a dark pattern. It is the same model Places4Students has run profitably for over twenty years and liv.rent runs today — owners pay to advertise to a captive student audience. Sturent's version is sharper because the platform can <em>show the owner the cost of not paying</em> in their own numbers.</p>
     </div>
