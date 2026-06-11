@@ -192,6 +192,32 @@
   .flow .step h4{margin:0 0 6px;text-transform:none;letter-spacing:-.01em;color:var(--ink);font-size:16px;}
   .flow .step p{margin:0;font-size:14.5px;color:var(--g1);max-width:68ch;}
 
+  /* ranked competitor lists */
+  .ranklab{display:flex;align-items:baseline;gap:14px;margin:46px 0 0;}
+  .ranklab .rk{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#fff;background:var(--ink);padding:5px 12px;font-weight:700;}
+  .ranklab .rx{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);border:1.5px solid var(--ink);padding:4px 11px;font-weight:700;}
+  .ranklab span.cap{font-size:13px;color:var(--g2);letter-spacing:0;text-transform:none;}
+  .rank{counter-reset:r;margin:20px 0 8px;border-top:1.5px solid var(--ink);}
+  .rank .row{counter-increment:r;display:grid;grid-template-columns:46px 1fr;gap:16px;padding:15px 2px;border-bottom:1px solid var(--rule);}
+  .rank .row::before{content:counter(r,decimal-leading-zero);font-weight:800;font-size:14px;color:var(--g3);font-variant-numeric:tabular-nums;line-height:1.55;}
+  .rank .nm{font-weight:700;font-size:15.5px;letter-spacing:-.01em;}
+  .rank .geo{display:inline-block;margin-left:11px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--g2);border:1px solid var(--rule);padding:2px 9px;border-radius:20px;vertical-align:2px;}
+  .rank .ds{font-size:13.5px;color:var(--g1);margin-top:5px;max-width:78ch;}
+
+  /* AI ledger */
+  .ledger{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:30px 0;}
+  .lg{background:var(--paper);padding:22px 22px;}
+  .lg.dark{background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:center;}
+  .lg h4{margin:0 0 4px;text-transform:none;letter-spacing:-.01em;color:var(--ink);font-size:15px;}
+  .lg .cat{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--g2);margin-bottom:12px;}
+  .lg ul{list-style:none;margin:0;padding:0;}
+  .lg li{font-size:13px;line-height:1.4;padding:7px 0 7px 16px;position:relative;border-top:1px solid var(--rule);color:var(--g1);}
+  .lg li:first-child{border-top:none;}
+  .lg li::before{content:"+";position:absolute;left:0;font-weight:700;color:var(--ink);}
+  .lg.dark .bignum{font-size:46px;font-weight:800;letter-spacing:-.03em;line-height:1;}
+  .lg.dark p{color:var(--g3);font-size:13px;margin:12px 0 0;max-width:none;}
+  @media(max-width:680px){.ledger{grid-template-columns:1fr;}}
+
   /* two-col prose at wide */
   .cols2{columns:2;column-gap:48px;max-width:none;}
   .cols2 p{max-width:none;}
@@ -262,6 +288,7 @@
       <li><a href="#s7"><span class="tt">Onboarding</span><span class="td">Document extraction for students and owners</span></a></li>
       <li><a href="#s8"><span class="tt">Build sequence</span><span class="td">From MVP to defensible platform</span></a></li>
       <li><a href="#s9"><span class="tt">Trust, law &amp; moat</span><span class="td">Ontario compliance and what makes it hard to copy</span></a></li>
+      <li><a href="#s10"><span class="tt">AI feature ledger</span><span class="td">Every capability, the task it kills, the revenue it unlocks</span></a></li>
     </ol>
   </div>
 </nav>
@@ -421,6 +448,38 @@
 
     <div class="wrap" style="padding-left:0;padding-right:0;">
     <p class="note"><b>Read the empty column.</b> Every competitor is either <mark>local-but-dumb or smart-but-foreign</mark>. None pairs deep GTA verification and all-in pricing with a real AI layer that serves both sides. liv.rent is the company to watch and the bar to clear on product craft; Places4Students is the proof that owners will pay; the classifieds are the supply Sturent converts.</p>
+    </div>
+
+    <div class="wrap" style="padding-left:0;padding-right:0;">
+      <div class="ranklab"><span class="rk">Direct</span> <span class="cap">Platforms a GTA owner or student could reach for <em>instead of</em> Sturent today</span></div>
+      <div class="rank">
+        <div class="row"><div><span class="nm">Places4Students</span><span class="geo">Canada · campus</span><div class="ds">The closest analog: a landlord-pays student listings board partnered with 245+ North American campuses since 2003. Proves owners will pay — but light on verification and carrying no intelligence layer.</div></div></div>
+        <div class="row"><div><span class="nm">liv.rent</span><span class="geo">Canada · verified</span><div class="ds">The product bar to clear. Manually verified landlords and listings, in-platform digital leases, screening and payments, ~C$48/mo landlord plan. Vancouver-led and pushing east.</div></div></div>
+        <div class="row"><div><span class="nm">Rentals.ca</span><span class="geo">Canada · listings</span><div class="ds">Canada's largest rental marketplace, 10,000+ long-term listings nationwide. Broad and familiar, but unverified and generic — not shaped around students or owners.</div></div></div>
+        <div class="row"><div><span class="nm">Zumper</span><span class="geo">North America · listings</span><div class="ds">Over a million US and Canadian listings with tenant screening and rent collection. Wins on volume and reach; thin on verification and local depth.</div></div></div>
+        <div class="row"><div><span class="nm">RentSeeker.ca</span><span class="geo">Canada · listings</span><div class="ds">A long-running Canadian rental listings site covering apartments and condos across the country. Directory-grade — no AI, no student focus, no owner relationship.</div></div></div>
+        <div class="row"><div><span class="nm">PadMapper</span><span class="geo">Canada / US · map search</span><div class="ds">Map-first rental discovery that aggregates inventory from other sources. Excellent search UX, but no verification and no two-sided relationship to monetize.</div></div></div>
+        <div class="row"><div><span class="nm">Kijiji Rentals</span><span class="geo">Canada · classifieds</span><div class="ds">The default Canadian classifieds for rooms and rentals. Maximum supply, maximum scam exposure, zero matching — precisely the inventory Sturent converts and cleans up.</div></div></div>
+        <div class="row"><div><span class="nm">Facebook Marketplace &amp; groups</span><span class="geo">Global · informal</span><div class="ds">Where most students actually begin, through "[University] housing" groups. Free and instant, but unverified and fraud-prone — the trust vacuum Sturent fills.</div></div></div>
+        <div class="row"><div><span class="nm">Student.com</span><span class="geo">Global · student</span><div class="ds">Student-specific booking platform with modern residences, operating into Canada. Strong brand, but oriented to purpose-built accommodation over the local long-tail stock.</div></div></div>
+        <div class="row"><div><span class="nm">4stay</span><span class="geo">US / Canada · student</span><div class="ds">Off-campus student housing marketplace partnered with some Canadian institutions. Direct on intent, light on GTA depth and verification.</div></div></div>
+      </div>
+
+      <div class="ranklab"><span class="rx">Indirect</span> <span class="cap">Adjacent tools, other geographies, and the model proven elsewhere — including India</span></div>
+      <div class="rank">
+        <div class="row"><div><span class="nm">SingleKey</span><span class="geo">Canada · landlord tools</span><div class="ds">Tenant screening, rent guarantee and automated collection — Equifax/TransUnion, RCMP and eviction databases, pre-filled leases, ~$24.99/report. Owns the trust-and-risk layer Sturent also needs: partner with it or rebuild it.</div></div></div>
+        <div class="row"><div><span class="nm">AmberStudent</span><span class="geo">Global · aggregator</span><div class="ds">~US$18.7M-raised cross-border aggregator funnelling international students into purpose-built accommodation for commission. Competes for the international student, not the local room.</div></div></div>
+        <div class="row"><div><span class="nm">University Living</span><span class="geo">Global · aggregator</span><div class="ds">India-built global student-housing aggregator across the UK, US, Australia and Canada. Discovery-strong, local-stock-light.</div></div></div>
+        <div class="row"><div><span class="nm">UniAcco</span><span class="geo">Global · aggregator</span><div class="ds">Cross-border "Compare–Consult–Choose" student accommodation. Same international funnel, different brand and origin.</div></div></div>
+        <div class="row"><div><span class="nm">HousingAnywhere</span><span class="geo">Europe · marketplace</span><div class="ds">Netherlands-based verified mid/long-term marketplace for students and expats across major European cities — effectively the European version of what Sturent is building locally.</div></div></div>
+        <div class="row"><div><span class="nm">Spotahome / Uniplaces</span><span class="geo">Europe · marketplace</span><div class="ds">Book-from-anywhere platforms with HD video tours and verified listings across European capitals. Living proof the verified online-marketplace model scales.</div></div></div>
+        <div class="row"><div><span class="nm">Stanza Living</span><span class="geo">India · operator</span><div class="ds">India's largest managed student and professional housing — 75,000+ beds across 23 cities, with meal plans and app-based management. An operator rather than a marketplace, but the dominant student-living brand in its market.</div></div></div>
+        <div class="row"><div><span class="nm">Zolo · Colive · Your-Space · Housr</span><span class="geo">India · operators</span><div class="ds">India's coliving spectrum, from budget PGs to luxury serviced studios, inside a market projected at $13–15B. Managed-inventory models adjacent to Sturent's lighter marketplace approach.</div></div></div>
+        <div class="row"><div><span class="nm">NoBroker</span><span class="geo">India · marketplace</span><div class="ds">India's largest brokerage-free, peer-to-peer rental platform — the closest Indian analog to a disintermediated owner-to-tenant marketplace, monetized through paid plans and services.</div></div></div>
+        <div class="row"><div><span class="nm">Magicbricks · 99acres · Housing.com</span><span class="geo">India · portals</span><div class="ds">India's incumbent listings portals for flats and PGs. High volume, low trust — the classifieds problem at national scale, and the gap a verified layer keeps reopening worldwide.</div></div></div>
+      </div>
+
+      <p class="note" style="margin-top:30px;"><b>The pattern across every market.</b> Wherever you look — Toronto, London, Amsterdam, Bengaluru — the same split repeats: high-volume untrusted classifieds on one side, managed-but-rigid operators or foreign aggregators on the other. The durable winners are the <mark>verified, local, intelligence-led marketplaces</mark> in between. That seat is open in the GTA.</p>
     </div>
   </div>
 </section>
@@ -687,6 +746,140 @@
     <div class="invert">
       <div class="lab">The defensibility, in one sentence</div>
       <p class="big">Competitors can copy a feature; they cannot copy the verified GTA supply, the local rental data, and the trust that took Sturent the work to earn.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="sec" id="s10">
+  <div class="bleed">
+    <div class="sechead">
+      <div class="secnum">10</div>
+      <div class="ht"><div class="eyebrow">AI feature ledger</div><h2>Every capability, the hard task it removes, and the money it unlocks.</h2></div>
+    </div>
+
+    <div class="wrap" style="padding-left:0;padding-right:0;">
+    <p class="lead">Section 05 described the system. This is the inventory — small features and large — written the way they should be sold. The pattern never changes: take something an owner finds slow, confusing, or risky, and turn it into a tap. The free tier removes friction to win supply; every "hard becomes easy" that touches money sits behind a paid tier.</p>
+    </div>
+
+    <h3>The revenue-driving ten</h3>
+    <div class="tablewrap">
+      <table>
+        <caption>The flagship capabilities, read as a sales argument: each row is a task an owner dreads, the AI that absorbs it, and the tier that captures the value.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Hard, slow or risky today</th>
+            <th scope="col">Sturent AI</th>
+            <th scope="col">What it becomes</th>
+            <th scope="col">Revenue lever</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Pricing the unit</th><td>Comparables &amp; rent engine</td><td>An all-in price band, with the drivers, in seconds</td><td>Pro tier · faster lease</td></tr>
+          <tr><th scope="row">Filling it before September</th><td>Match + boost engine</td><td>Ranked demand and an alert when a fit appears</td><td>Featured placement</td></tr>
+          <tr><th scope="row">Building the listing</th><td>Extraction + copy + photo grading</td><td>A finished listing from a few photos</td><td>Onboarding hook → upsell</td></tr>
+          <tr><th scope="row">Earning a student's trust</th><td>Verification scoring + fraud detection</td><td>A badge students filter by</td><td>Paid verified tier</td></tr>
+          <tr><th scope="row">Answering the same questions</th><td>Q&amp;A relay + smart replies</td><td>Instant, grounded answers without re-typing</td><td>Growth convenience</td></tr>
+          <tr><th scope="row">Screening applicants</th><td>Screening + falsification flags</td><td>Ranked applicants with risks surfaced</td><td>Growth tier</td></tr>
+          <tr><th scope="row">Drafting the lease</th><td>Ontario standard-lease generation</td><td>A compliant lease, pre-filled from agreed terms</td><td>Per-lease · Growth</td></tr>
+          <tr><th scope="row">Knowing why a unit sits</th><td>Owner copilot + optimisation</td><td>A prioritised list of what to change</td><td>Intelligence dashboard</td></tr>
+          <tr><th scope="row">Reaching the right student</th><td>% match + demand signals</td><td>Shown to students who actually fit</td><td>Area placement</td></tr>
+          <tr><th scope="row">Deciding whether to promote</th><td>Boost recommendation</td><td>"Boost now — projected +X inquiries this week"</td><td>Direct ad revenue</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>The full capability set</h3>
+    <div class="wrap" style="padding-left:0;padding-right:0;">
+    <p>Grouped by where they sit in the journey. The large ones anchor the tiers; the small ones are the texture that makes the product feel like it is doing the work for you.</p>
+    </div>
+
+    <div class="ledger">
+      <div class="lg">
+        <div class="cat">A · Onboarding &amp; data</div>
+        <h4>Turn paperwork into a profile</h4>
+        <ul>
+          <li>Auto-fill a listing from unit photos</li>
+          <li>Passport, study-permit and ID extraction</li>
+          <li>Ownership and utility-bill parsing</li>
+          <li>ID + selfie liveness verification</li>
+          <li>Income and employment document parsing</li>
+        </ul>
+      </div>
+      <div class="lg">
+        <div class="cat">B · Discovery &amp; matching</div>
+        <h4>Three right rooms, not two hundred</h4>
+        <ul>
+          <li>Campus commute-time scoring</li>
+          <li>Percentage match with plain-language reasons</li>
+          <li>Roommate matching</li>
+          <li>Auto-translate for international students</li>
+          <li>Saved-search alerts on new fits</li>
+        </ul>
+      </div>
+      <div class="lg">
+        <div class="cat">C · Pricing &amp; market intelligence</div>
+        <h4>Know what the street supports</h4>
+        <ul>
+          <li>All-in rent band suggestion</li>
+          <li>"You're under- or over-priced" alerts</li>
+          <li>Area demand heatmap</li>
+          <li>Comparable-unit benchmarking</li>
+          <li>Vacancy-risk forecast before intake</li>
+        </ul>
+      </div>
+      <div class="lg">
+        <div class="cat">D · Owner operations &amp; copilot</div>
+        <h4>An assistant that knows your listings</h4>
+        <ul>
+          <li>Performance Q&amp;A ("how many viewed it?")</li>
+          <li>Next-best-action recommendations</li>
+          <li>Boost-now recommendation engine</li>
+          <li>Smart reply drafts to inquiries</li>
+          <li>Best-time-to-respond nudges</li>
+        </ul>
+      </div>
+      <div class="lg">
+        <div class="cat">E · Communication &amp; concierge</div>
+        <h4>Stop the back-and-forth</h4>
+        <ul>
+          <li>Auto-answer listing questions (Q&amp;A relay)</li>
+          <li>Per-listing auto-generated FAQ</li>
+          <li>Inquiry quality scoring &amp; lead ranking</li>
+          <li>Chatbot escalation routing</li>
+          <li>Conversation summarisation</li>
+        </ul>
+      </div>
+      <div class="lg">
+        <div class="cat">F · Trust &amp; fraud</div>
+        <h4>Defend the verified badge</h4>
+        <ul>
+          <li>Falsified-application detection</li>
+          <li>Duplicate and scam-listing detection</li>
+          <li>Reference-check sentiment analysis</li>
+          <li>Verified-badge scoring</li>
+          <li>RTA and rent-cap compliance flags</li>
+        </ul>
+      </div>
+      <div class="lg">
+        <div class="cat">G · Documents &amp; marketing</div>
+        <h4>From agreed terms to signed lease</h4>
+        <ul>
+          <li>Ontario standard-lease generation</li>
+          <li>Plain-language lease-clause explainer</li>
+          <li>Listing copywriting</li>
+          <li>Photo quality grading + "add this shot"</li>
+          <li>Virtual staging</li>
+        </ul>
+      </div>
+      <div class="lg dark">
+        <div class="bignum">35+</div>
+        <p>distinct AI capabilities, one connected system. The point isn't the count — it's that each one writes data the next one reads, so the product gets sharper the more it's used. That compounding is the part a competitor can't buy off the shelf.</p>
+      </div>
+    </div>
+
+    <div class="wrap" style="padding-left:0;padding-right:0;">
+    <p class="note"><b>How to read this as a pricing map.</b> Everything in group B and the student-facing concierge stays free — it's the demand magnet. The moment a capability touches an owner's money — visibility, speed, trust, or price — it earns its place behind Growth, Pro, or a success fee. <mark>The free side compounds demand; the paid side sells the tools to capture it.</mark></p>
     </div>
   </div>
 </section>
